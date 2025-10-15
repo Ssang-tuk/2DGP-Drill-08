@@ -23,6 +23,23 @@ def left_up(e):
 
 
 
+class AutoRun:
+
+    def __init__(self, boy):
+        self.boy = boy
+
+    def enter(self,e):
+        self.boy.dir = 0
+
+    def exit(self,e):
+        pass
+
+    def do(self):
+        self.boy.frame = (self.boy.frame + 1) % 8
+
+    def draw(self):
+        pass
+
 class Sleep:
 
     def __init__(self, boy):
