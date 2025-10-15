@@ -29,9 +29,13 @@ class AutoRun:
         self.boy = boy
 
     def enter(self,e):
-        self.boy.dir = 0
+        self.start_time = get_time()
+        self.boy.x += self.boy.dir * 10 # 속도 두배로 해보기
+        self.boy.size = 200 # 사이즈 변수설정, 두배로 늘려봄
 
     def exit(self,e):
+        self.boy.x += self.boy.dir * 5 # 속도 원래대로 돌아오기
+        self.boy.size = 100 # 사이즈도 원래대로 돌아오기
         pass
 
     def do(self):
