@@ -58,14 +58,17 @@ class AutoRun:
             self.boy.dir = 1
             self.boy.face_dir = 1
 
+        if get_time() - self.start_time > 5:
+            self.boy.state_machine.handle_state_event(('TIME_OUT', None))
+
     def draw(self):
 
         if self.boy.face_dir == 1:
             self.boy.image.clip_draw(self.boy.frame * 100, 100, 100, 100,
-                                     self.boy.x, self.boy.y, self.boy.size, self.boy.size) # 사이즈 변수 사용
+                                     self.boy.x , self.boy.y + 30, self.boy.size, self.boy.size) # 사이즈 변수 사용
         else:
             self.boy.image.clip_draw(self.boy.frame * 100, 0, 100, 100,
-                                     self.boy.x, self.boy.y, self.boy.size, self.boy.size)
+                                     self.boy.x, self.boy.y + 30, self.boy.size, self.boy.size)
         pass
 
 class Sleep:
@@ -156,7 +159,7 @@ class Boy:
                 self.AutoRun : { time_out: self.IDLE,
                     right_down: self.RUN,
                     left_down: self.RUN,
-                    AutoRun_Active(): self.AutoRun}
+                    AutoRun_Active: self.AutoRun}
             }
         )
 
