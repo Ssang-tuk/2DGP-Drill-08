@@ -54,6 +54,13 @@ class AutoRun:
             self.boy.face_dir = 1
 
     def draw(self):
+
+        if self.boy.face_dir == 1:
+            self.boy.image.clip_draw(self.boy.frame * 100, 100, 100, 100,
+                                     self.boy.x, self.boy.y, self.boy.size, self.boy.size) # 사이즈 변수 사용
+        else:
+            self.boy.image.clip_draw(self.boy.frame * 100, 0, 100, 100,
+                                     self.boy.x, self.boy.y, self.boy.size, self.boy.size)
         pass
 
 class Sleep:
